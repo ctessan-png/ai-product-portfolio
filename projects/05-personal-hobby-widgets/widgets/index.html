@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Hobby Widgets</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <p class="eyebrow">AI Product + Data Portfolio</p>
+        <h1>Personal Hobby Widgets</h1>
+        <p>
+          A lightweight playground for turning personal interests into small portfolio-ready
+          product, data, and AI project ideas.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Widget controls and results">
+        <form class="panel" id="hobby-form">
+          <h2>Build A Widget Idea</h2>
+          <label for="hobby">Hobby or interest</label>
+          <select id="hobby" name="hobby">
+            <option value="restaurants">Trying restaurants</option>
+            <option value="travel">Travel planning</option>
+            <option value="music">Music and playlists</option>
+            <option value="fitness">Fitness or wellness</option>
+            <option value="reading">Reading and learning</option>
+          </select>
+
+          <label for="goal">Portfolio goal</label>
+          <select id="goal" name="goal">
+            <option value="data">Show data analysis</option>
+            <option value="ai">Show strategic AI use</option>
+            <option value="product">Show product thinking</option>
+            <option value="storytelling">Show storytelling</option>
+          </select>
+
+          <button type="submit">Generate Idea</button>
+        </form>
+
+        <article class="panel result" aria-live="polite">
+          <h2 id="idea-title">Restaurant Decision Helper</h2>
+          <p id="idea-summary">
+            Build a small recommendation widget that helps someone choose where to order from
+            based on cuisine, cost, rating, and delivery speed.
+          </p>
+          <dl>
+            <div>
+              <dt>Skill shown</dt>
+              <dd id="skill-output">Data filtering and business explanation</dd>
+            </div>
+            <div>
+              <dt>AI support</dt>
+              <dd id="ai-output">Use AI to brainstorm decision criteria and test recommendation wording.</dd>
+            </div>
+            <div>
+              <dt>Portfolio artifact</dt>
+              <dd id="artifact-output">Interactive HTML widget plus a short reflection.</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="cards" aria-label="Portfolio concept cards">
+        <article>
+          <h2>Prompt Angle</h2>
+          <p>Ask AI to generate criteria, edge cases, and questions a real user would care about.</p>
+        </article>
+        <article>
+          <h2>Data Angle</h2>
+          <p>Use small structured inputs, filters, rankings, and summaries to support a decision.</p>
+        </article>
+        <article>
+          <h2>Product Angle</h2>
+          <p>Explain who the widget helps, what decision it supports, and how success would be measured.</p>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
