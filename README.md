@@ -22,7 +22,8 @@ ai-product-portfolio/
 │   ├── 02-ai-prompt-engineering/
 │   ├── 03-ai-business-use-case/
 │   ├── 04-final-presentation/
-│   └── 05-personal-hobby-widgets/
+│   ├── 05-personal-hobby-widgets/
+│   └── 06-iphone-widget-research/
 ├── assets/
 │   ├── screenshots/
 │   └── diagrams/
@@ -38,6 +39,7 @@ ai-product-portfolio/
 | AI Business Use Case | Product thinking and AI workflow design | Problem statement, solution design, workflow map, risk review |
 | Final Presentation | Communication and storytelling | Speaker notes and demo script |
 | Personal Hobby Widgets | Creative coding and personal portfolio artifacts | Interactive widget, ideas, personalization guide |
+| iPhone Widget Research | Personal AI reflection and concept research | Inspiration statement, AI ode, build plan |
 
 ## Tools Used
 
@@ -53,8 +55,11 @@ ai-product-portfolio/
 3. Review `projects/02-ai-prompt-engineering/` to see how AI was used intentionally.
 4. Review `projects/03-ai-business-use-case/` for product strategy and workflow design.
 5. Review `projects/05-personal-hobby-widgets/` for the creative personal section.
-6. Review `git-workflow.md` to understand how Git was used to track work.
+6. Review `projects/06-iphone-widget-research/` for the research phase behind future iPhone-style widgets.
+7. Review `git-workflow.md` to understand how Git was used to track work.
 
 ## Personal Section
 
 The portfolio also includes a personal hobby widget area. This section is designed to turn interests like restaurants, travel, music, fitness, or reading into small technical artifacts that still demonstrate product thinking, data logic, AI prompting, and clear communication.
+
+The iPhone widget research section expands this idea into a more personal design direction. It documents the inspiration, the Pinterest-style aesthetic goal, and the role AI can play in turning a feeling or visual idea into a structured product concept.

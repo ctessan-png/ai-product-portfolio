@@ -19,6 +19,8 @@ I am interested in work that connects analysis with real decisions. That include
 
 This portfolio also includes a personal section because technical work should show personality as well as skill. The hobby widget project turns everyday interests into small code artifacts, showing how creativity can become product thinking.
 
+The newest research phase explores iPhone-style widgets as a personal ode to AI. It documents how inspiration can begin as a feeling, visual reference, or saved idea, and how AI can help turn that early spark into structure, language, and eventually a build plan.
+
 ## What This Portfolio Shows
 
 - How I frame a business problem before starting analysis.
@@ -42,3 +44,5 @@ The goal is not only to show that I can run code or write prompts. The goal is t
 The `projects/05-personal-hobby-widgets/` section creates space for fun, personal projects. It includes an interactive widget starter and a guide for turning hobbies into portfolio-ready mini projects.
 
 The purpose of this section is to show creativity while keeping the portfolio professional. Each hobby idea is connected to a skill such as data filtering, recommendation logic, prompt engineering, user experience design, or storytelling.
+
+The `projects/06-iphone-widget-research/` section starts the research phase for a future widget collection inspired by Pinterest-style iPhone layouts. This section is intentionally reflective. It explains what inspired the idea, why AI matters to the process, and how the project can move from personal inspiration to practical product artifacts.
