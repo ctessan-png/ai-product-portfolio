@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">FoodHub EDA Summary</title>
+  <desc id="desc">Bar charts summarizing order counts by cuisine and day of week.</desc>
+  <rect width="900" height="520" fill="#ffffff"/>
+  <style>
+    .title { font: 700 28px Arial, sans-serif; fill: #172033; }
+    .label { font: 15px Arial, sans-serif; fill: #172033; }
+    .axis { stroke: #9aa7b8; stroke-width: 1; }
+    .bar1 { fill: #2f4b7c; }
+    .bar2 { fill: #f28e2b; }
+  </style>
+  <text class="title" x="40" y="48">FoodHub Demand Snapshot</text>
+  <text class="label" x="40" y="86">Top cuisine order counts</text>
+  <line class="axis" x1="190" y1="350" x2="760" y2="350"/>
+  <text class="label" x="40" y="128">American</text>
+  <rect class="bar1" x="190" y="108" width="467" height="28"/>
+  <text class="label" x="670" y="129">584</text>
+  <text class="label" x="40" y="178">Japanese</text>
+  <rect class="bar1" x="190" y="158" width="376" height="28"/>
+  <text class="label" x="580" y="179">470</text>
+  <text class="label" x="40" y="228">Italian</text>
+  <rect class="bar1" x="190" y="208" width="238" height="28"/>
+  <text class="label" x="442" y="229">298</text>
+  <text class="label" x="40" y="278">Chinese</text>
+  <rect class="bar1" x="190" y="258" width="172" height="28"/>
+  <text class="label" x="376" y="279">215</text>
+  <text class="label" x="40" y="328">Mexican</text>
+  <rect class="bar1" x="190" y="308" width="62" height="28"/>
+  <text class="label" x="266" y="329">77</text>
+  <text class="label" x="40" y="410">Orders by day type</text>
+  <text class="label" x="40" y="454">Weekend</text>
+  <rect class="bar2" x="190" y="434" width="540" height="28"/>
+  <text class="label" x="744" y="455">1,351</text>
+  <text class="label" x="40" y="492">Weekday</text>
+  <rect class="bar2" x="190" y="472" width="219" height="28"/>
+  <text class="label" x="423" y="493">547</text>
+</svg>
+
