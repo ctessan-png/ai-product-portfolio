@@ -10,6 +10,7 @@ import {
   buildStampSlots,
   getCompletionCount,
   getTodayKey,
+  getWeekKey,
   pickByIndex,
   toggleCompletion
 } from "./ritual-engine.mjs";
@@ -17,15 +18,16 @@ import { createMemoryStorage, loadJson, removeJson, saveJson } from "./storage.m
 
 const storage = safeStorage();
 const todayKey = getTodayKey();
+const weekKey = getWeekKey();
 const stateKey = `morning-ritual:${todayKey}`;
-const weeklyKey = "morning-ritual:weekly-joy";
+const weeklyKey = `morning-ritual:weekly-joy:${weekKey}`;
 
 const defaultState = {
   promptIndex: 0,
   tarotIndex: null,
   tarotShuffleCount: 0,
-  meditationId: meditations[0].id,
-  podcastId: podcasts[0].id,
+  meditationId: getInitialId(meditations),
+  podcastId: getInitialId(podcasts),
   completedTasks: {}
 };
 
@@ -45,7 +47,9 @@ const elements = {
   pullTarot: document.querySelector("#pull-tarot"),
   tarotResult: document.querySelector("#tarot-result"),
   meditationOptions: document.querySelector("#meditation-options"),
+  meditationDetail: document.querySelector("#meditation-detail"),
   podcastOptions: document.querySelector("#podcast-options"),
+  podcastDetail: document.querySelector("#podcast-detail"),
   morningTaskList: document.querySelector("#morning-task-list"),
   morningStamps: document.querySelector("#morning-stamps"),
   joyStamps: document.querySelector("#joy-stamps"),
@@ -63,18 +67,52 @@ function safeStorage() {
   }
 }
 
+function getInitialId(items) {
+  return Array.isArray(items) && items.length > 0 ? items[0].id : null;
+}
+
+function renderEmptyState(container, message) {
+  container.innerHTML = "";
+  const fallback = document.createElement("p");
+  fallback.className = "empty-state";
+  fallback.textContent = message;
+  container.append(fallback);
+}
+
+function getSelectedItem(items, selectedId) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return null;
+  }
+
+  return items.find((item) => item.id === selectedId) ?? items[0];
+}
+
 function persist() {
   saveJson(storage, stateKey, state);
   saveJson(storage, weeklyKey, weeklyState);
 }
 
 function renderPrompt() {
+  if (journalPrompts.length === 0) {
+    elements.promptCategory.textContent = "No prompts";
+    elements.promptText.textContent = "Add journal prompts to the local data file to draw one here.";
+    return;
+  }
+
   const prompt = pickByIndex(journalPrompts, state.promptIndex);
   elements.promptCategory.textContent = prompt.category;
   elements.promptText.textContent = prompt.text;
 }
 
 function renderTarot() {
+  if (tarotCards.length === 0) {
+    elements.tarotResult.innerHTML = `
+      <p class="tarot-name">No tarot cards</p>
+      <p>Add reflective tarot cards to the local data file to pull one here.</p>
+    `;
+    return;
+  }
+
   if (state.tarotIndex === null) {
     elements.tarotResult.innerHTML = `
       <p class="tarot-name">Ready to pull</p>
@@ -93,6 +131,11 @@ function renderTarot() {
 
 function renderChoices(container, items, selectedId, onSelect) {
   container.innerHTML = "";
+
+  if (!Array.isArray(items) || items.length === 0) {
+    renderEmptyState(container, "No options are available yet.");
+    return;
+  }
 
   items.forEach((item) => {
     const button = document.createElement("button");
@@ -120,6 +163,11 @@ function formatChoiceLabel(item) {
 function renderTasks() {
   elements.morningTaskList.innerHTML = "";
 
+  if (morningTasks.length === 0) {
+    renderEmptyState(elements.morningTaskList, "No morning tasks are available yet.");
+    return;
+  }
+
   morningTasks.forEach((task) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -138,6 +186,11 @@ function renderTasks() {
 function renderStampGrid(container, items, completed, onToggle) {
   container.innerHTML = "";
 
+  if (!Array.isArray(items) || items.length === 0) {
+    renderEmptyState(container, "No stamps are available yet.");
+    return;
+  }
+
   buildStampSlots(items, completed).forEach((slot) => {
     const item = items.find((candidate) => candidate.id === slot.id);
     const button = document.createElement("button");
@@ -150,8 +203,40 @@ function renderStampGrid(container, items, completed, onToggle) {
   });
 }
 
+function renderMeditationDetail() {
+  const meditation = getSelectedItem(meditations, state.meditationId);
+
+  if (!meditation) {
+    renderEmptyState(elements.meditationDetail, "No meditation instructions are available yet.");
+    return;
+  }
+
+  elements.meditationDetail.innerHTML = "";
+  const title = document.createElement("p");
+  title.innerHTML = `<strong>${meditation.durationMinutes} min · ${meditation.title}</strong>`;
+  const instruction = document.createElement("p");
+  instruction.textContent = meditation.instruction;
+  elements.meditationDetail.append(title, instruction);
+}
+
+function renderPodcastDetail() {
+  const podcast = getSelectedItem(podcasts, state.podcastId);
+
+  if (!podcast) {
+    renderEmptyState(elements.podcastDetail, "No podcast notes are available yet.");
+    return;
+  }
+
+  elements.podcastDetail.innerHTML = "";
+  const title = document.createElement("p");
+  title.innerHTML = `<strong>${podcast.title} · ${podcast.mood}</strong>`;
+  const note = document.createElement("p");
+  note.textContent = podcast.note;
+  elements.podcastDetail.append(title, note);
+}
+
 function render() {
-  elements.todayLabel.textContent = `Morning ritual · ${todayKey}`;
+  elements.todayLabel.textContent = `Morning ritual · ${todayKey} · ${weekKey}`;
   renderPrompt();
   renderTarot();
   renderChoices(elements.meditationOptions, meditations, state.meditationId, (id) => {
@@ -159,11 +244,13 @@ function render() {
     persist();
     render();
   });
+  renderMeditationDetail();
   renderChoices(elements.podcastOptions, podcasts, state.podcastId, (id) => {
     state.podcastId = id;
     persist();
     render();
   });
+  renderPodcastDetail();
   renderTasks();
   renderStampGrid(elements.morningStamps, morningTasks, state.completedTasks, (id) => {
     state.completedTasks = toggleCompletion(state.completedTasks, id);
@@ -203,6 +290,12 @@ elements.pullTarot.addEventListener("click", () => {
 });
 
 elements.resetRitual.addEventListener("click", () => {
+  const confirmed = window.confirm("Reset today's ritual and this week's joy stamps?");
+
+  if (!confirmed) {
+    return;
+  }
+
   state = { ...defaultState, completedTasks: {} };
   weeklyState = {};
   removeJson(storage, stateKey);

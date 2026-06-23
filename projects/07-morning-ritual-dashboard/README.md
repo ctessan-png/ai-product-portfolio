@@ -35,10 +35,12 @@ This project shows how personal routines can become product concepts. It combine
 
 ## How To Run
 
-Open `index.html` in a browser, or run a local static server from this folder:
+Run a local static server from this folder:
 
 ```bash
 python3 -m http.server 8765
 ```
 
 Then visit `http://127.0.0.1:8765/`.
+
+The dashboard uses ES module imports, so direct `file://` opening is not the recommended path and may leave dynamic sections unhydrated in some browsers.

@@ -4,6 +4,7 @@ import {
   buildStampSlots,
   getCompletionCount,
   getTodayKey,
+  getWeekKey,
   pickByIndex,
   toggleCompletion
 } from "../src/ritual-engine.mjs";
@@ -40,6 +41,15 @@ test("data lists include the first-version ritual content", () => {
 
 test("getTodayKey returns a stable local date key", () => {
   assert.equal(getTodayKey(new Date("2026-06-23T08:15:00")), "2026-06-23");
+});
+
+test("getWeekKey returns a stable ISO week key", () => {
+  assert.equal(getWeekKey(new Date("2026-06-23T08:15:00")), "2026-W26");
+});
+
+test("getWeekKey keeps one week together and rolls over on Monday", () => {
+  assert.equal(getWeekKey(new Date("2026-06-28T22:00:00")), "2026-W26");
+  assert.equal(getWeekKey(new Date("2026-06-29T06:00:00")), "2026-W27");
 });
 
 test("pickByIndex wraps large indexes safely", () => {

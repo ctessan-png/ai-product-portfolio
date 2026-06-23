@@ -162,6 +162,29 @@ button:focus-visible,
   font-size: 1.05rem;
 }
 
+.selected-detail,
+.empty-state {
+  margin-top: 14px;
+  border: var(--pc-border) dashed var(--pc-line);
+  border-radius: var(--pc-radius-md);
+  background: rgba(255, 248, 232, 0.72);
+  padding: 12px;
+}
+
+.selected-detail p,
+.empty-state {
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.selected-detail p {
+  margin: 6px 0 0;
+}
+
+.selected-detail p:first-child {
+  margin-top: 0;
+}
+
 .tarot-name {
   font-family: var(--pc-title);
   font-size: 1.6rem;

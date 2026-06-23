@@ -5,6 +5,18 @@ export function getTodayKey(date = new Date()) {
   return `${year}-${month}-${day}`;
 }
 
+export function getWeekKey(date = new Date()) {
+  const weekDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNumber = weekDate.getUTCDay() || 7;
+  weekDate.setUTCDate(weekDate.getUTCDate() + 4 - dayNumber);
+
+  const weekYear = weekDate.getUTCFullYear();
+  const yearStart = new Date(Date.UTC(weekYear, 0, 1));
+  const weekNumber = Math.ceil(((weekDate - yearStart) / 86400000 + 1) / 7);
+
+  return `${weekYear}-W${String(weekNumber).padStart(2, "0")}`;
+}
+
 export function pickByIndex(items, index) {
   if (!Array.isArray(items) || items.length === 0) {
     throw new Error("Cannot pick from an empty list");
