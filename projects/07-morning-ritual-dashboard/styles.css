@@ -241,3 +241,33 @@ button:focus-visible,
     transform: translateY(-1px);
   }
 }
+
+.tarot-result.is-shuffling {
+  animation: shuffle-card 300ms ease;
+}
+
+@keyframes shuffle-card {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  35% {
+    transform: translateX(-6px) rotate(-1deg);
+  }
+  70% {
+    transform: translateX(6px) rotate(1deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
