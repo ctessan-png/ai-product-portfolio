@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Morning Ritual Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="Morning ritual dashboard">
+      <section class="hero-card">
+        <p class="eyebrow" id="today-label">Morning ritual</p>
+        <h1>Before the apps, come back to yourself.</h1>
+        <p id="intention-text" class="hand-note">Open this first. Let the phone be a ritual surface, not a rabbit hole.</p>
+      </section>
+
+      <section class="ritual-grid" aria-label="Morning ritual cards">
+        <article class="card journal-card">
+          <div class="card-heading">
+            <p class="eyebrow">Journal</p>
+            <button id="new-prompt" type="button">New prompt</button>
+          </div>
+          <p id="prompt-category" class="tag">grounding</p>
+          <p id="prompt-text" class="prompt-text">What would make this morning feel protected and spacious?</p>
+        </article>
+
+        <article class="card tarot-card">
+          <div class="card-heading">
+            <p class="eyebrow">Tarot reflection</p>
+            <div class="button-row">
+              <button id="shuffle-tarot" type="button">Shuffle</button>
+              <button id="pull-tarot" type="button">Pull</button>
+            </div>
+          </div>
+          <div id="tarot-result" class="tarot-result" aria-live="polite">
+            <p class="tarot-name">Ready to pull</p>
+            <p>Shuffle, pull one card, and use it as a reflection question.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Meditation</p>
+          <h2>Pick 5 or 10 minutes</h2>
+          <div id="meditation-options" class="choice-list"></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Walk companion</p>
+          <h2>Podcast pick</h2>
+          <div id="podcast-options" class="choice-list"></div>
+        </article>
+      </section>
+
+      <section class="card checklist-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Morning tasks</p>
+            <h2>Keep it on this screen</h2>
+          </div>
+          <button id="reset-ritual" type="button">Reset</button>
+        </div>
+        <div id="morning-task-list" class="task-list"></div>
+      </section>
+
+      <section class="card stamp-card">
+        <p class="eyebrow">Stamp card</p>
+        <h2>Morning ritual punches</h2>
+        <div id="morning-stamps" class="stamp-grid" aria-label="Morning ritual stamps"></div>
+      </section>
+
+      <section class="card stamp-card joy-card">
+        <p class="eyebrow">Weekly joy</p>
+        <h2>Non-work activity stamps</h2>
+        <div id="joy-stamps" class="stamp-grid" aria-label="Weekly joy stamps"></div>
+      </section>
+    </main>
+
+    <script type="module" src="src/app.mjs"></script>
+  </body>
+</html>

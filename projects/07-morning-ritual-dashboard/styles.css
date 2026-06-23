@@ -1,0 +1,243 @@
+:root {
+  --pc-cream: #fff8e8;
+  --pc-vanilla: #fff2cf;
+  --pc-blush: #f8c9d8;
+  --pc-petal: #f6dff6;
+  --pc-lilac: #cfd5ff;
+  --pc-periwinkle: #8f9af8;
+  --pc-sky: #bfdcf7;
+  --pc-mint: #bfe9c8;
+  --pc-sage: #8bc283;
+  --pc-butter: #f6da64;
+  --pc-coral: #ff7e67;
+  --pc-tomato: #e3544b;
+  --pc-berry: #9f2f57;
+  --pc-ink: #262220;
+  --pc-paper: #fffdf7;
+  --pc-shadow: rgba(106, 74, 59, 0.14);
+  --pc-shadow-strong: rgba(106, 74, 59, 0.22);
+  --pc-line: rgba(80, 53, 45, 0.16);
+  --pc-radius-xl: 32px;
+  --pc-radius-lg: 24px;
+  --pc-radius-md: 18px;
+  --pc-radius-sm: 14px;
+  --pc-radius-pill: 999px;
+  --pc-border: 2px;
+  --pc-space-1: 6px;
+  --pc-space-2: 10px;
+  --pc-space-3: 14px;
+  --pc-space-4: 18px;
+  --pc-space-5: 24px;
+  --pc-space-6: 32px;
+  --pc-title: "DM Serif Display", Georgia, serif;
+  --pc-body: Nunito, "Trebuchet MS", sans-serif;
+  --pc-accent: Caveat, "Bradley Hand", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--pc-ink);
+  background:
+    radial-gradient(circle at 12% 8%, var(--pc-petal), transparent 28%),
+    radial-gradient(circle at 88% 18%, var(--pc-sky), transparent 24%),
+    linear-gradient(180deg, var(--pc-cream), var(--pc-vanilla));
+  font-family: var(--pc-body);
+}
+
+button {
+  min-height: 42px;
+  border: var(--pc-border) solid var(--pc-line);
+  border-radius: var(--pc-radius-pill);
+  background: var(--pc-paper);
+  color: var(--pc-ink);
+  font: 800 0.9rem var(--pc-body);
+  cursor: pointer;
+  box-shadow: 0 8px 18px var(--pc-shadow);
+}
+
+button:focus-visible,
+.task-button:focus-visible {
+  outline: 3px solid var(--pc-periwinkle);
+  outline-offset: 3px;
+}
+
+.phone-shell {
+  width: min(430px, 100%);
+  margin: 0 auto;
+  padding: 18px 14px 32px;
+}
+
+.hero-card,
+.card {
+  border: var(--pc-border) solid var(--pc-line);
+  border-radius: var(--pc-radius-xl);
+  background: rgba(255, 253, 247, 0.92);
+  box-shadow: 0 18px 42px var(--pc-shadow);
+}
+
+.hero-card {
+  padding: 26px 22px;
+  background: linear-gradient(145deg, var(--pc-paper), var(--pc-petal));
+}
+
+.hero-card h1,
+.card h2 {
+  margin: 0;
+  font-family: var(--pc-title);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hero-card h1 {
+  max-width: 11ch;
+  font-size: 3rem;
+}
+
+.card h2 {
+  font-size: 1.55rem;
+}
+
+.eyebrow,
+.tag {
+  margin: 0;
+  color: var(--pc-berry);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hand-note {
+  margin: 18px 0 0;
+  font: 700 1.5rem var(--pc-accent);
+}
+
+.ritual-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  margin-top: 14px;
+  padding: 18px;
+}
+
+.ritual-grid .card {
+  margin-top: 0;
+}
+
+.card-heading {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+}
+
+.button-row button {
+  padding: 0 14px;
+}
+
+.journal-card {
+  background: linear-gradient(145deg, var(--pc-paper), var(--pc-blush));
+}
+
+.tarot-card {
+  background: linear-gradient(145deg, var(--pc-paper), var(--pc-lilac));
+}
+
+.prompt-text,
+.tarot-result p {
+  margin: 14px 0 0;
+  font-size: 1.05rem;
+}
+
+.tarot-name {
+  font-family: var(--pc-title);
+  font-size: 1.6rem;
+}
+
+.choice-list,
+.task-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.choice,
+.task-button {
+  display: block;
+  width: 100%;
+  border: var(--pc-border) solid var(--pc-line);
+  border-radius: var(--pc-radius-md);
+  background: var(--pc-paper);
+  padding: 12px;
+  text-align: left;
+}
+
+.choice[aria-pressed="true"],
+.task-button[aria-pressed="true"] {
+  background: var(--pc-mint);
+  border-color: var(--pc-sage);
+}
+
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.stamp {
+  display: grid;
+  min-height: 72px;
+  place-items: center;
+  border: 2px dashed rgba(80, 53, 45, 0.28);
+  border-radius: var(--pc-radius-md);
+  background: var(--pc-vanilla);
+  color: rgba(38, 34, 32, 0.62);
+  font: 800 0.76rem var(--pc-body);
+  text-align: center;
+}
+
+.stamp.is-stamped {
+  border-style: solid;
+  background: var(--pc-butter);
+  color: var(--pc-ink);
+  box-shadow: inset 0 0 0 4px rgba(255, 253, 247, 0.56);
+}
+
+@media (min-width: 780px) {
+  .phone-shell {
+    width: min(920px, calc(100% - 48px));
+  }
+
+  .ritual-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button,
+  .choice,
+  .task-button,
+  .stamp {
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+
+  button:hover,
+  .choice:hover,
+  .task-button:hover {
+    transform: translateY(-1px);
+  }
+}
