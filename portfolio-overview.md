@@ -46,3 +46,5 @@ The `projects/05-personal-hobby-widgets/` section creates space for fun, persona
 The purpose of this section is to show creativity while keeping the portfolio professional. Each hobby idea is connected to a skill such as data filtering, recommendation logic, prompt engineering, user experience design, or storytelling.
 
 The `projects/06-iphone-widget-research/` section starts the research phase for a future widget collection inspired by Pinterest-style iPhone layouts. This section is intentionally reflective. It explains what inspired the idea, why AI matters to the process, and how the project can move from personal inspiration to practical product artifacts.
+
+The `projects/07-morning-ritual-dashboard/` section turns the research into a working mobile-first artifact. It shows how a personal morning routine can become a product concept with local data, interaction design, state persistence, and a playful stamp-card mechanic.

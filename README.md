@@ -23,7 +23,8 @@ ai-product-portfolio/
 │   ├── 03-ai-business-use-case/
 │   ├── 04-final-presentation/
 │   ├── 05-personal-hobby-widgets/
-│   └── 06-iphone-widget-research/
+│   ├── 06-iphone-widget-research/
+│   └── 07-morning-ritual-dashboard/
 ├── assets/
 │   ├── screenshots/
 │   └── diagrams/
@@ -40,6 +41,7 @@ ai-product-portfolio/
 | Final Presentation | Communication and storytelling | Speaker notes and demo script |
 | Personal Hobby Widgets | Creative coding and personal portfolio artifacts | Interactive widget, ideas, personalization guide |
 | iPhone Widget Research | Personal AI reflection and concept research | Inspiration statement, AI ode, build plan |
+| Morning Ritual Dashboard | Mobile-first personal ritual app | Journal prompts, tarot pull, meditation picker, checklist, stamp cards |
 
 ## Tools Used
 
@@ -56,7 +58,8 @@ ai-product-portfolio/
 4. Review `projects/03-ai-business-use-case/` for product strategy and workflow design.
 5. Review `projects/05-personal-hobby-widgets/` for the creative personal section.
 6. Review `projects/06-iphone-widget-research/` for the research phase behind future iPhone-style widgets.
-7. Review `git-workflow.md` to understand how Git was used to track work.
+7. Review `projects/07-morning-ritual-dashboard/` for the mobile-first ritual dashboard build.
+8. Review `git-workflow.md` to understand how Git was used to track work.
 
 ## Personal Section
 
